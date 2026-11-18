@@ -1,0 +1,38 @@
+# Illustrative inputs only. Factors, section properties, and project criteria
+# must be replaced with verified values for the actual design.
+member_id: B-01
+span_m: 6.0
+fy_mpa: 355
+gamma_m0: 1.0
+e_mpa: 210000
+compression_flange_laterally_restrained: true
+
+section:
+  designation: Example-only section (not a catalogue section)
+  section_class: 2
+  i_y_mm4: 250000000
+  a_v_mm2: 2500
+  w_pl_y_mm3: 1000000
+
+load_cases:
+  - name: permanent
+    udl_kN_per_m: 5.0
+  - name: imposed
+    udl_kN_per_m: 4.0
+    point_loads:
+      - magnitude_kN: 6.0
+        position_m: 3.0
+
+combinations:
+  # Factors are deliberately illustrative and are NOT EN 1990 recommendations.
+  - name: illustrative_uls
+    limit_state: ULS
+    factors:
+      permanent: 1.0
+      imposed: 1.0
+  - name: illustrative_sls
+    limit_state: SLS
+    factors:
+      permanent: 1.0
+      imposed: 1.0
+    deflection_limit_mm: 20.0
